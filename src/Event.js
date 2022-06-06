@@ -19,6 +19,7 @@ class Event extends Component {
       detailView: false,
     });
   };
+
   render() {
     const { event } = this.props;
     return (
@@ -38,6 +39,7 @@ class Event extends Component {
             </button>
           ) : null}
         </div>
+
         <div className="event-details">
           {this.state.detailView ? (
             <>

@@ -13,7 +13,7 @@ describe("<Event /> component", () => {
   });
 
   test("component renders an event dateTime", () => {
-    expect(EventWrapper.find(".eventDateTime").value).toHaveLength(2);
+    expect(EventWrapper.find(".eventDateTime")).toHaveLength(1);
   });
   test("component renders an event location", () => {
     expect(EventWrapper.find(".location")).toHaveLength(1);
