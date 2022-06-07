@@ -12,16 +12,20 @@ describe("<Event /> component", () => {
     expect(EventWrapper.find(".event-title").value).toEqual(mockData.summary);
   });
 
-  test("component renders an event dateTime", () => {
-    expect(EventWrapper.find(".eventDateTime")).toHaveLength(1);
-  });
   test("component renders an event location", () => {
     expect(EventWrapper.find(".location")).toHaveLength(1);
   });
-  test("component renders google calendar link", () => {
-    expect(EventWrapper.find(".calendar-link")).toHaveLength(1);
+
+  test("clicking show details should change event state", () => {
+    EventWrapper.find(".details-toggle-button1").simulate("click");
+    expect(EventWrapper.state("basicView")).toBe(false);
+    expect(EventWrapper.state("detailView")).toBe(true);
   });
-  test("component renders a description of event", () => {
+  test("component renders google calendar link on expanded view", () => {
+    expect(EventWrapper.find(".googleCalLink")).toHaveLength(1);
+  });
+  test("clicking show details renders a description of event", () => {
     expect(EventWrapper.find(".event-description")).toHaveLength(1);
   });
 });
+    

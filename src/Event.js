@@ -27,8 +27,8 @@ class Event extends Component {
         <div className="event-basics">
           <h2 className="event-title">{event.summary}</h2>
           <p className="eventDateTime">
-            {new Date(event.start.dateTime).toLocaleDateString()}
-            {` (${event.start.timeZone})`}
+            {/* {new Date(event.start.dateTime).toLocaleDateString()}
+            {` (${event.start.timeZone})`} */}
           </p>
           <p className="location">{`@${event.summary} | ${event.location}`}</p>
           {this.state.basicView ? (
@@ -45,7 +45,9 @@ class Event extends Component {
           {this.state.detailView ? (
             <>
               <p className="about-event">About event:</p>
-              <a href={event.htmlLink}>See details on Google Calendar</a>
+              <a href={event.htmlLink} className="googleCalLink">
+                See details on Google Calendar
+              </a>
               <p className="event-description">{event.description}</p>
               <button
                 onClick={this.hideDetails}
