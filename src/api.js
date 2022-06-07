@@ -10,3 +10,4 @@
     var locations = [...new Set(extractLocations)];
     return locations;
   };
+
