@@ -1,5 +1,6 @@
 import { mockData } from "./mock-data";
 import axios from "axios";
+import NProgress from "nprogress";
 //  @param {*} events:
 //  * The following function should be in the “api.js” file.
 //  * This function takes an events array, then uses map to create a new array with only locations.
