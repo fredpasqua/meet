@@ -47,13 +47,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div
-        style={{
-          backgroundSize: "cover",
-          backgroundImage: `url("https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg")`,
-        }}
-        className="App"
-      >
+      <div className="App">
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}

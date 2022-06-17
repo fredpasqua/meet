@@ -7,7 +7,7 @@
 
 .App * {
   box-sizing: border-box;
-
+  
 }
 
 ul {
@@ -40,7 +40,7 @@ input[type="number"] {
 }
 
 .city {
-  width: auto;
+  min-width: 300px;
 }
 
 .CitySearch {
@@ -53,11 +53,11 @@ input[type="number"] {
 }
 .CitySearch-title {
   margin-bottom: 5px;
-  color: white;
+  color: rgb(25, 10, 229);
 }
 
 .NumOfEventsTitle {
-  color: white;
+  color: rgb(49, 4, 228);
   font-size: 20px;
 }
 
