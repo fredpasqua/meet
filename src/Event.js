@@ -24,39 +24,41 @@ class Event extends Component {
     const { event } = this.props;
     return (
       <>
-        <div className="event-basics">
-          <h2 className="event-title">{event.summary}</h2>
-          <p className="eventDateTime">
-            {/* {new Date(event.start.dateTime).toLocaleDateString()}
+        <div className="event-wrapper">
+          <div className="event-basics">
+            <h2 className="event-title">{event.summary}</h2>
+            <p className="eventDateTime">
+              {/* {new Date(event.start.dateTime).toLocaleDateString()}
             {` (${event.start.timeZone})`} */}
-          </p>
-          <p className="location">{`@${event.summary} | ${event.location}`}</p>
-          {this.state.basicView ? (
-            <button
-              onClick={this.showDetails}
-              className="details-toggle-button1"
-            >
-              show details
-            </button>
-          ) : null}
-        </div>
-
-        <div className="event-details">
-          {this.state.detailView ? (
-            <>
-              <p className="about-event">About event:</p>
-              <a href={event.htmlLink} className="googleCalLink">
-                See details on Google Calendar
-              </a>
-              <p className="event-description">{event.description}</p>
+            </p>
+            <p className="location">{`@${event.summary} | ${event.location}`}</p>
+            {this.state.basicView ? (
               <button
-                onClick={this.hideDetails}
+                onClick={this.showDetails}
                 className="details-toggle-button1"
               >
-                hide details
+                show details
               </button>
-            </>
-          ) : null}
+            ) : null}
+          </div>
+
+          <div className="event-details">
+            {this.state.detailView ? (
+              <>
+                <p className="about-event">About event:</p>
+                <a href={event.htmlLink} className="googleCalLink">
+                  See details on Google Calendar
+                </a>
+                <p className="event-description">{event.description}</p>
+                <button
+                  onClick={this.hideDetails}
+                  className="details-toggle-button2"
+                >
+                  hide details
+                </button>
+              </>
+            ) : null}
+          </div>
         </div>
       </>
     );

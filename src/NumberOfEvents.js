@@ -27,7 +27,7 @@ class NumberOfEvents extends Component {
     const { eventsToShow, errorMsg } = this.state;
     return (
       <>
-        <label>Number of Events:</label>
+        <label className="NumOfEventsTitle">Number of Events:</label>
         <div className="eventInput">
           <input
             label="Number of events"

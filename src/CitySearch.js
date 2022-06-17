@@ -29,6 +29,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        <h3 className="CitySearch-title">Search By City</h3>
         <input
           type="text"
           className="city"
@@ -51,7 +52,7 @@ class CitySearch extends Component {
             </li>
           ))}
           <li onClick={() => this.handleItemClicked("all")}>
-            <b>See all cities</b>
+            <b className="all-cities">See all cities</b>
           </li>
         </ul>
       </div>
