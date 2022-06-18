@@ -37,10 +37,6 @@ class Event extends Component {
                 minute: "2-digit",
               })}
             </p>
-            <p className="eventDateTime">
-              Time Zone:{` (${event.start.timeZone})`}
-            </p>
-
             <p className="location">{`@${event.summary} | ${event.location}`}</p>
             {this.state.basicView ? (
               <button
