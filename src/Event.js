@@ -28,9 +28,19 @@ class Event extends Component {
           <div className="event-basics">
             <h2 className="event-title">{event.summary}</h2>
             <p className="eventDateTime">
-              {/* {new Date(event.start.dateTime).toLocaleDateString()}
-            {` (${event.start.timeZone})`} */}
+              Date:{" "}
+              {new Date(event.start.dateTime).toLocaleTimeString([], {
+                year: "numeric",
+                month: "numeric",
+                day: "numeric",
+                hour: "2-digit",
+                minute: "2-digit",
+              })}
             </p>
+            <p className="eventDateTime">
+              Time Zone:{` (${event.start.timeZone})`}
+            </p>
+
             <p className="location">{`@${event.summary} | ${event.location}`}</p>
             {this.state.basicView ? (
               <button
