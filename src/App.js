@@ -10,6 +10,7 @@ class App extends Component {
     events: [],
     locations: [],
     locationSelected: "all",
+    InitEventsToShow: 12,
   };
 
   updateEvents = (location, eventCount) => {
@@ -36,7 +37,10 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({
+          events: events.slice(0, this.state.InitEventsToShow),
+          locations: extractLocations(events),
+        });
       }
     });
   }
