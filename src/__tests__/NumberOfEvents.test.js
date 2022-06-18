@@ -1,6 +1,6 @@
 import React from "react";
 import NumberOfEvents from "../NumberOfEvents";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 
 describe("<NumberOfEvents /> component", () => {
   let NumberOfEventsWrapper;
@@ -23,22 +23,3 @@ describe("<NumberOfEvents /> component", () => {
     expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(11);
   });
 });
-
-describe("<NumberOfEvents /> integration", () => {
-  test('App passes "events" state as a prop to EvenList', () => {
-    const AppWrapper = mount(<App />);
-    const AppEventsState = AppWrapper.state("events");
-    expect(AppEventsState).not.toEqual(undefined);
-    expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
-    AppWrapper.unmount();
-  });
-
-  test('App passes "locations" state as a prop to CitySearch', () => {
-    const AppWrapper = mount(<App />);
-    const AppLocationsState = AppWrapper.state("locations");
-    expect(AppLocationsState).not.toEqual(undefined);
-    expect(AppWrapper.find(CitySearch).props().locations).toEqual(
-      AppLocationsState
-    );
-    AppWrapper.unmount();
-  });
