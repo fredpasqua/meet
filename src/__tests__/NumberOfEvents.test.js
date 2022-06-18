@@ -25,9 +25,6 @@ describe("<NumberOfEvents /> integration", () => {
   beforeAll(() => {
     NumberOfEventsWrapper = mount(<NumberOfEvents />);
   });
-  //   test("input changes state of eventsToShow", () => {
-  //     const eventObject = { target: { value: 11 } };
-  //     NumberOfEventsWrapper.find(".eventsToShow").simulate("change", eventObject);
-  //     expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(11);
-  //   });
 });
+
+
