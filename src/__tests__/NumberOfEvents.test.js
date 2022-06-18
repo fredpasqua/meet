@@ -1,6 +1,6 @@
 import React from "react";
 import NumberOfEvents from "../NumberOfEvents";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 describe("<NumberOfEvents /> component", () => {
   let NumberOfEventsWrapper;
@@ -13,13 +13,19 @@ describe("<NumberOfEvents /> component", () => {
     expect(NumberOfEventsWrapper.find(".eventsToShow")).toHaveLength(1);
   });
 
-  test("render 5 events to start", () => {
-    expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(5);
+  test("render 12 events to start", () => {
+    expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(12);
   });
+});
 
-  test("input changes state of eventsToShow", () => {
-    const eventObject = { target: { value: 11 } };
-    NumberOfEventsWrapper.find(".eventsToShow").simulate("change", eventObject);
-    expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(11);
+describe("<NumberOfEvents /> integration", () => {
+  let NumberOfEventsWrapper;
+  beforeAll(() => {
+    NumberOfEventsWrapper = mount(<NumberOfEvents />);
   });
+  //   test("input changes state of eventsToShow", () => {
+  //     const eventObject = { target: { value: 11 } };
+  //     NumberOfEventsWrapper.find(".eventsToShow").simulate("change", eventObject);
+  //     expect(NumberOfEventsWrapper.state("eventsToShow")).toEqual(11);
+  //   });
 });
