@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 import App from "../App.js";
 import EventList from "../EventList";
 import CitySearch from "../CitySearch";
+import NumberOfEvents from "../NumberOfEvents.js";
 import { mockData } from "../mock-data";
 import { extractLocations, getEvents } from "../api";
 
@@ -58,11 +59,22 @@ describe("<App /> component", () => {
 
     test('get list of all events when user selects "See all cities"', async () => {
       const AppWrapper = mount(<App />);
-      const suggestionItems =
-        AppWrapper.find(CitySearch).find(".suggestions li");
+      const suggestionItems = AppWrapper.find(CitySearch).find(
+        ".suggestions li"
+      );
       await suggestionItems.at(suggestionItems.length - 1).simulate("click");
       const allEvents = await getEvents();
       expect(AppWrapper.state("events")).toEqual(allEvents);
+      AppWrapper.unmount();
+    });
+
+    test('App passes "numberOfEvents" state as a prop to NumberOfEvents', () => {
+      const AppWrapper = mount(<App />);
+      const AppNumOfEventsState = AppWrapper.state("numberOfEvents");
+      expect(AppNumOfEventsState).not.toEqual(undefined);
+      expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(
+        AppNumOfEventsState
+      );
       AppWrapper.unmount();
     });
   });
