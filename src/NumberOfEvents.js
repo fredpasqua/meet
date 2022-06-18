@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 class NumberOfEvents extends Component {
   state = {
-    eventsToShow: 12,
     errorMsg: null,
   };
 
@@ -10,21 +9,17 @@ class NumberOfEvents extends Component {
     const value = event.target.value;
     value < 1 || value > 32
       ? this.setState({
-          eventsToShow: "",
           errorMsg: "must be between 1-32 please",
         })
       : this.setState({
-          eventsToShow: value,
           errorMsg: null,
         });
     this.props.updateEvents(undefined, value);
-
-    console.log(this.state.errorMsg);
-    console.log(value);
   };
 
   render() {
-    const { eventsToShow, errorMsg } = this.state;
+    const { errorMsg } = this.state;
+    const { numberOfEvents } = this.props;
     return (
       <>
         <label className="NumOfEventsTitle">Number of Events:</label>
@@ -33,7 +28,7 @@ class NumberOfEvents extends Component {
             label="Number of events"
             type="integer"
             className="eventsToShow"
-            value={eventsToShow}
+            value={numberOfEvents}
             onChange={this.handleInputChanged}
           />
           <p className="errorMsg" style={{ color: "red" }}>

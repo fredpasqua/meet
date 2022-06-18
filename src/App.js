@@ -10,7 +10,7 @@ class App extends Component {
     events: [],
     locations: [],
     locationSelected: "all",
-    InitEventsToShow: 12,
+    numberOfEvents: 32,
   };
 
   updateEvents = (location, eventCount) => {
@@ -55,7 +55,10 @@ class App extends Component {
           locations={this.state.locations}
           updateEvents={this.updateEvents}
         />
-        <NumberOfEvents updateEvents={this.updateEvents} />
+        <NumberOfEvents
+          updateEvents={this.updateEvents}
+          numberOfEvents={this.state.numberOfEvents}
+        />
         <EventList events={this.state.events} />
       </div>
     );
