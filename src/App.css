@@ -109,20 +109,18 @@ input:focus {
 
 .EventList {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+    justify-content: center;
+    gap: 10px;
   align-items: center;
-}
-  
-.EvenList li {
   flex-wrap: wrap;
-  
 }
   
  .event-basics {
     margin: auto;
     position: relative;
     padding: 10px 10px 35px;
-      margin-bottom: 10px;
+    margin-bottom: 10px;
       text-align: center;
       position: relative;
       max-width: 400px;
