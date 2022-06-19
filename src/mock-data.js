@@ -11,7 +11,7 @@ const mockData = [
     summary: "Learn JavaScript",
     description:
       "Have you wondered how you can ask Google to show you the list of the top ten must-see places in London? And how Google presents you the list? How can you submit the details of an application? Well, JavaScript is doing these. :) \n\nJavascript offers interactivity to a dull, static website. Come, learn JavaScript with us and make those beautiful websites.",
-    location: "London, UK",
+    location: "London, UK - REMOTE USA LOGIN",
     creator: { email: "fullstackwebdev@careerfoundry.com", self: true },
     organizer: { email: "fullstackwebdev@careerfoundry.com", self: true },
     start: { dateTime: "2020-05-19T16:00:00+02:00", timeZone: "Europe/Berlin" },
