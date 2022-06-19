@@ -146,9 +146,12 @@ input:focus {
   cursor: pointer;
   background-color: #4285f4;
   color: white;
-    font-weight: bold;
+  font-weight: bold;
 }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+.location {
+  min-height: 2em;
+}
 
 .details-toggle-button2 {
   position: relative;
