@@ -28,7 +28,7 @@ class Event extends Component {
           <div className="event-basics">
             <h2 className="event-title">{event.summary}</h2>
             <p className="eventDateTime">
-              When: {""}
+              When:{" "}
               {new Date(event.start.dateTime).toLocaleTimeString([], {
                 year: "numeric",
                 month: "numeric",
