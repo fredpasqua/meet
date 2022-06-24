@@ -62,6 +62,10 @@ input:focus {
   color: rgb(25, 10, 229);
 }
 
+.Alert {
+  font-weight: bold;
+  font-size: 22px;
+}
 .NumOfEventsTitle {
   margin-bottom: 5px;
     color: rgb(25, 10, 229);
@@ -200,10 +204,7 @@ input:focus {
   font-family: sans-serif;
 }
 
-.Alert {
-  position: fixed;
-  top: 20px;
-}
+
 
 .data-vis-wrapper {
   display: flex;
