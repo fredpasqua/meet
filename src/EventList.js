@@ -1,16 +1,40 @@
 import React, { Component } from 'react';
 import Event from './Event.js';
+import { InfoAlert } from "./Alert";
+
 class EventList extends Component {
+  state = {
+    infoText: "",
+  };
+
+  isOnline = () => {
+    if (!navigator.onLine) {
+      this.setState({
+        infoText:
+          "App is currently offline. Some event data may not be accurate",
+      });
+    } else {
+      this.setState({ infoText: "" });
+    }
+  };
+
+  componentDidMount() {
+    this.isOnline();
+  }
+
   render() {
-      const { events } = this.props;
+    const { events } = this.props;
     return (
-      <ul className='EventList'>
-          {events.map(event => 
+      <>
+        <InfoAlert text={this.state.infoText} />
+        <ul className="EventList">
+          {events.map((event) => (
             <li key={event.id}>
-                <Event event={event} />
+              <Event event={event} />
             </li>
-           )}
-      </ul>
+          ))}
+        </ul>
+      </>
     );
   }
 }
