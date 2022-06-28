@@ -23,31 +23,52 @@ const checkToken = async (accessToken) => {
   return result;
 };
 export const getEvents = async () => {
-  NProgress.start();
+                                       NProgress.start();
 
-  if (window.location.href.startsWith("http://localhost")) {
-    NProgress.done();
-    return mockData;
-  }
+                                       if (
+                                         window.location.href.startsWith(
+                                           "http://localhost"
+                                         )
+                                       ) {
+                                         NProgress.done();
+                                         return mockData;
+                                       }
+                                       //will check if online, if not online,
+                                       if (!navigator.onLine) {
+                                         const data = localStorage.getItem(
+                                           "lastEvents"
+                                         );
+                                         NProgress.done();
+                                         return data
+                                           ? JSON.parse(data).events
+                                           : [];
+                                       }
+                                       const token = await getAccessToken();
 
-  const token = await getAccessToken();
-
-  if (token) {
-    removeQuery();
-    const url =
-      "https://ih88s8g780.execute-api.us-east-1.amazonaws.com/dev/api/get-events" +
-      "/" +
-      token;
-    const result = await axios.get(url);
-    if (result.data) {
-      var locations = extractLocations(result.data.events);
-      localStorage.setItem("lastEvents", JSON.stringify(result.data));
-      localStorage.setItem("locations", JSON.stringify(locations));
-    }
-    NProgress.done();
-    return result.data.events;
-  }
-};
+                                       if (token) {
+                                         removeQuery();
+                                         const url =
+                                           "https://ih88s8g780.execute-api.us-east-1.amazonaws.com/dev/api/get-events" +
+                                           "/" +
+                                           token;
+                                         const result = await axios.get(url);
+                                         if (result.data) {
+                                           var locations = extractLocations(
+                                             result.data.events
+                                           );
+                                           localStorage.setItem(
+                                             "lastEvents",
+                                             JSON.stringify(result.data)
+                                           );
+                                           localStorage.setItem(
+                                             "locations",
+                                             JSON.stringify(locations)
+                                           );
+                                         }
+                                         NProgress.done();
+                                         return result.data.events;
+                                       }
+                                     };
 
 export const getAccessToken = async () => {
   const accessToken = localStorage.getItem("access_token");
