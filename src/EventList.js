@@ -7,6 +7,7 @@ class EventList extends Component {
     infoText: "",
   };
 
+  //check for online status
   isOnline = () => {
     if (!navigator.onLine) {
       this.setState({
