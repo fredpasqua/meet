@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event.js';
-import { InfoAlert } from "./Alert";
+import { CriticalAlert } from "./Alert";
 
 class EventList extends Component {
   state = {
@@ -11,7 +11,7 @@ class EventList extends Component {
     if (!navigator.onLine) {
       this.setState({
         infoText:
-          "App is currently offline. Some event data may not be accurate",
+          "App is currently offline. Some event data may not be up to date! Connect to the internet for the most updated info.",
       });
     } else {
       this.setState({ infoText: "" });
@@ -26,7 +26,7 @@ class EventList extends Component {
     const { events } = this.props;
     return (
       <>
-        <InfoAlert text={this.state.infoText} />
+        <CriticalAlert text={this.state.infoText} />
         <ul className="EventList">
           {events.map((event) => (
             <li key={event.id}>
