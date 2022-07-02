@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
-import * as atatus from "atatus-spa";
-atatus.config("0ce0a08119f24a27a72e247bcd17b457").install();
+import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
