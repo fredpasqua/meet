@@ -59,7 +59,7 @@ input:focus {
 }
 .CitySearch-title {
   margin-bottom: 5px;
-  color: rgb(25, 10, 229);
+  color: rgb(10, 104, 104);
 }
 
 .Alert {
@@ -68,8 +68,7 @@ input:focus {
 }
 .NumOfEventsTitle {
   margin-bottom: 5px;
-    color: rgb(25, 10, 229);
-    
+  color: rgb(10, 104, 104);
 }
 
 .event-title {
@@ -204,32 +203,3 @@ input:focus {
   font-family: sans-serif;
 }
 
-
-
-.data-vis-wrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.data-vis-wrapper .recharts-responsive-container {
-  min-width: 100%;
-  display: flex;
-}
-
-.recharts-surface {
-  overflow: visible;
-}
-
-@media only screen and (min-width: 992px) {
-  .data-vis-wrapper {
-    flex-direction: row;
-  }
-
-  .data-vis-wrapper .recharts-responsive-container {
-    flex-basis: 50%;
-    max-width: 50%;
-    min-width: auto;
-    margin: 0 auto;
-  }
-}
