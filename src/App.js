@@ -33,6 +33,7 @@ class App extends Component {
       const city = location.split(", ").shift();
       return { city, number };
     });
+    console.log(data);
     return data;
   };
 
