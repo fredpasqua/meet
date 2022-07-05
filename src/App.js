@@ -6,6 +6,14 @@ import NumberOfEvents from "./NumberOfEvents";
 import { getEvents, extractLocations, checkToken, getAccessToken } from "./api";
 import "./nprogress.css";
 import WelcomeScreen from "./welcomeScreen";
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
 
 class App extends Component {
   state = {
@@ -14,6 +22,17 @@ class App extends Component {
     locationSelected: "all",
     numberOfEvents: 32,
     showWelcomeScreen: undefined,
+  };
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter(
+        (event) => event.location === location
+      ).length;
+      const city = location.split(", ").shift();
+      return { city, number };
+    });
+    return data;
   };
 
   updateEvents = (location, eventCount) => {
@@ -64,6 +83,7 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
+        <h1>Meet App</h1>
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
@@ -72,6 +92,29 @@ class App extends Component {
           updateEvents={this.updateEvents}
           numberOfEvents={this.state.numberOfEvents}
         />
+        <h4>Events in each City</h4>
+
+        <ScatterChart
+          width={400}
+          height={400}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis type="category" dataKey="city" name="city" />
+          <YAxis
+            type="number"
+            dataKey="number"
+            name="number of events"
+            allowDecimals={false}
+          />
+          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+          <Scatter data={this.getData()} fill="#8884d8" />
+        </ScatterChart>
         <EventList events={this.state.events} />
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
