@@ -25,6 +25,8 @@ class App extends Component {
     numberOfEvents: 32,
     showWelcomeScreen: undefined,
   };
+
+  //Function gets Data for the charts
   getData = () => {
     const { locations, events } = this.state;
     const data = locations.map((location) => {
@@ -37,7 +39,7 @@ class App extends Component {
     console.log(data);
     return data;
   };
-
+  //Function supplies props to CitySearch and NumberOfEvents components
   updateEvents = (location, eventCount) => {
     if (eventCount === undefined) {
       eventCount = this.state.numberOfEvents;
