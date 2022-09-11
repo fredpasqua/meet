@@ -23,29 +23,34 @@ const EventGenre = ({ events }) => {
   }, [events]);
 
   return (
-    <ResponsiveContainer height={400}>
-      <PieChart width={300} height={300}>
-        <Pie
-          data={data}
-          cx="50%"
-          cy="50%"
-          labelLine={false}
-          innerRadius={60}
-          outerRadius={90}
-          fill="#8884d8"
-          dataKey="value"
-          label={({ name, percent }) => {
-            if (percent > 0) {
-              return `${name} ${(percent * 100).toFixed(0)}%`;
-            }
-          }}
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-    </ResponsiveContainer>
+    <div className="dataCharts">
+      <ResponsiveContainer height={400}>
+        <PieChart width={300} height={300}>
+          <Pie
+            data={data}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            innerRadius={60}
+            outerRadius={90}
+            fill="#8884d8"
+            dataKey="value"
+            label={({ name, percent }) => {
+              if (percent > 0) {
+                return `${name} ${(percent * 100).toFixed(0)}%`;
+              }
+            }}
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
